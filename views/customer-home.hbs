@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Customer Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                     <button onclick="window.location.href='/login'">Logout</button>
+                <li><a href="/orders">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Welcome to Customer Home</h2>
+
+        <h3>Available Restaurants</h3>
+        
+        <!-- Display restaurants dynamically -->
+        <div class="restaurant-list">
+            {{#each restaurants}}
+                <div class="restaurant-item">
+                    <h4>{{this.name}}</h4>
+                    <p>{{this.address.street}}, {{this.address.city}}, {{this.address.state}}, {{this.address.pincode}}</p>
+                    <p>{{this.description}}</p>
+                    <a href="/restaurant/{{this._id}}" class="view-details">View Details</a>
+                </div>
+            {{else}}
+                <p>No restaurants available at the moment.</p>
+            {{/each}}
+        </div>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Food Delivery App</p>
+    </footer>
+</body>
+</html>

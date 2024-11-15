@@ -1,0 +1,46 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Register</title>
+  </head>
+  <body>
+    <button onclick="window.location.href='/'">Home</button>
+    <h2>Register</h2>
+    <form action="/register" method="POST">
+      <label for="name">Name:</label>
+      <input type="text" id="name" name="name" required /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" name="email" required /><br /><br />
+
+      <label for="phone">Phone:</label>
+      <input type="text" id="phone" name="phone" required /><br /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required /><br /><br
+      />
+
+      <label for="street">Street:</label>
+      <input type="text" id="street" name="street" required /><br /><br />
+
+      <label for="city">City:</label>
+      <input type="text" id="city" name="city" required /><br /><br />
+
+      <label for="state">State:</label>
+      <input type="text" id="state" name="state" required /><br /><br />
+
+      <label for="pincode">Pincode:</label>
+      <input type="text" id="pincode" name="pincode" required /><br /><br />
+
+      <label for="role">Role:</label>
+      <select id="role" name="role" required>
+        <option value="customer">Customer</option>
+        <option value="restaurant_owner">Restaurant Owner</option>
+        <option value="delivery_person">Delivery Person</option>
+      </select><br /><br />
+
+      <button type="submit">Register</button>
+    </form>
+  </body>
+</html>

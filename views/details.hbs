@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Address</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li><a href="/login">Logout</a></li>
+                <li><a href="/restaurant-owner-home">Profile</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h1>Restaurant Details</h1>
+
+<form action="/details" method="POST">
+  <label for="name">Restaurant Name:</label>
+  <input type="text" id="name" name="name" value="{{restaurant.name}}" required /><br /><br />
+
+  <label for="street">Street:</label>
+  <input type="text" id="street" name="street" value="{{restaurant.address.street}}" required /><br /><br />
+
+  <label for="city">City:</label>
+  <input type="text" id="city" name="city" value="{{restaurant.address.city}}" required /><br /><br />
+
+  <label for="state">State:</label>
+  <input type="text" id="state" name="state" value="{{restaurant.address.state}}" required /><br /><br />
+
+  <label for="pincode">Pincode:</label>
+  <input type="text" id="pincode" name="pincode" value="{{restaurant.address.pincode}}" required /><br /><br />
+
+  <button type="submit">Save Details</button>
+</form>
+
+
+<a href="/restaurant-owner-home">Go Back</a>
+
+</body>
+</html>

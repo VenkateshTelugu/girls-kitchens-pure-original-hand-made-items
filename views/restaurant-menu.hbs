@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{restaurant.name}} - Menu</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <button onclick="window.location.href='/login'">Logout</button>
+                <li><a href="/orders">Orders</a></li>
+                <li><a href="/customer-home">Back to Home</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>{{restaurant.name}}</h2>
+        <p>{{restaurant.address.street}}, {{restaurant.address.city}}, {{restaurant.address.state}}, {{restaurant.address.pincode}}</p>
+
+        <h3>Menu</h3>
+        <form action="/order" method="POST">
+            <input type="hidden" name="restaurantId" value="{{restaurant._id}}">
+            <ul class="menu-list">
+                {{#each menu}}
+                    <li>
+                        <h4>{{this.name}} - ₹{{this.price}}</h4>
+                        <p>{{this.description}}</p>
+                        <label for="quantity-{{this._id}}">Quantity</label>
+                        <input type="number" name="quantity[{{this._id}}]" id="quantity-{{this._id}}" min="1" value="1" required>
+                        <input type="checkbox" name="menuItems[]" value="{{this._id}}"> Select
+                    </li>
+                {{/each}}
+            </ul>
+            <button type="submit">Order Selected Items</button>
+        </form>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Food Delivery App</p>
+    </footer>
+</body>
+</html>

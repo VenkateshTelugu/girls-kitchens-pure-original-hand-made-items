@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Driver Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <button onclick="window.location.href='/login'">Logout</button>
+                <li><a href="/orders">Orders</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Driver Dashboard</h2>
+        <h3>Current Orders</h3>
+
+        {{#if orders.length}}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Restaurant</th>
+                        <th>Delivery Address</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{#each orders}}
+                        <tr>
+                            <td>{{this._id}}</td>
+                            <td>{{this.restaurantName}}</td>
+                            <td>{{this.deliveryAddress.street}}, {{this.deliveryAddress.city}}, {{this.deliveryAddress.state}}, {{this.deliveryAddress.pincode}}</td>
+                            <td>{{this.status}}</td>
+                            <td>
+                                {{#if this.status "==" "Pending"}}
+                                    <a href="/accept-order/{{this._id}}">Accept</a> | 
+                                    <a href="/reject-order/{{this._id}}">Reject</a>
+                                {{else}}
+                                    <span>{{this.status}}</span>
+                                {{/if}}
+                            </td>
+                        </tr>
+                    {{/each}}
+                </tbody>
+            </table>
+        {{else}}
+            <p>No orders available at the moment.</p>
+        {{/if}}
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Food Delivery App</p>
+    </footer>
+</body>
+</html>
